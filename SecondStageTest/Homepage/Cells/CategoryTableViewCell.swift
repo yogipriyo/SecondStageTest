@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CategoryTableViewCell: UITableViewCell {
     
@@ -24,8 +25,11 @@ class CategoryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupContent() {
-        
+    func setupContent(_ mealCategory: MealCategory) {
+        self.nameLabel.text = mealCategory.strCategory
+        if let imageURL: URL = URL(string: mealCategory.strCategoryThumb) {
+            self.iconImage.sd_setImage(with: imageURL, completed: nil)
+        }
     }
     
 }

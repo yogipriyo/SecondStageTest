@@ -19,19 +19,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzW-XG-5AD">
-                    <rect key="frame" x="109.5" y="84" width="195.5" height="24"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <rect key="frame" x="103.5" y="76" width="207" height="24"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PJB-1Z-Yo0">
-                    <rect key="frame" x="0.0" y="124" width="414" height="738"/>
+                    <rect key="frame" x="0.0" y="116" width="414" height="746"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="gzW-XG-5AD" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="5fg-8S-Aaj"/>
+                <constraint firstItem="gzW-XG-5AD" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="32" id="5fg-8S-Aaj"/>
                 <constraint firstItem="gzW-XG-5AD" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="8ed-D2-eUa"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="PJB-1Z-Yo0" secondAttribute="bottom" id="GeY-Ht-x0F"/>
                 <constraint firstItem="PJB-1Z-Yo0" firstAttribute="top" secondItem="gzW-XG-5AD" secondAttribute="bottom" constant="16" id="f4C-aB-sHV"/>
