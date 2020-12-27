@@ -1,5 +1,5 @@
 //
-//  HomepageViewController.swift
+//  MealListViewController.swift
 //  SecondStageTest
 //
 //  Created by Yogi Priyo Prayogo on 27/12/20.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class HomepageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MealListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var categoryTableView: UITableView!
+    @IBOutlet weak var mealTableView: UITableView!
     
-    let cellReuseIdentifier = "CategoryTableViewCell"
+    let cellReuseIdentifier = "MealTableViewCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,20 +22,20 @@ class HomepageViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     private func setupTable() {
-        self.categoryTableView.dataSource = self
-        self.categoryTableView.delegate = self
+        self.mealTableView.dataSource = self
+        self.mealTableView.delegate = self
         
-        let categoryCell = UINib(nibName: "CategoryTableViewCell", bundle: nil)
-        self.categoryTableView.register(categoryCell, forCellReuseIdentifier: cellReuseIdentifier)
+        let mealCell = UINib(nibName: "MealTableViewCell", bundle: nil)
+        self.mealTableView.register(mealCell, forCellReuseIdentifier: cellReuseIdentifier)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: cellReuseIdentifier) as? CategoryTableViewCell ?? UITableViewCell()
+            withIdentifier: cellReuseIdentifier) as? MealTableViewCell ?? UITableViewCell()
         cell.selectionStyle = .none
 
         return cell
@@ -46,8 +46,8 @@ class HomepageViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let mealListVC: MealListViewController = MealListViewController()
-        self.navigationController?.pushViewController(mealListVC, animated: true)
+        let mealDetailsVC: MealDetailsViewController = MealDetailsViewController()
+        self.navigationController?.pushViewController(mealDetailsVC, animated: true)
     }
 
 }

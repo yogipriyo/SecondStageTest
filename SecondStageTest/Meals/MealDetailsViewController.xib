@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MealDetailsViewController" customModule="SecondStageTest" customModuleProvider="target">
+            <connections>
+                <outlet property="descLabel" destination="tkR-Ws-d6l" id="mSZ-o2-aJg"/>
+                <outlet property="nameLabel" destination="C29-zI-E9C" id="j1C-Ri-uaX"/>
+                <outlet property="thumbnailImage" destination="w6c-pK-Z80" id="gFy-UW-D4z"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal's Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C29-zI-E9C">
+                    <rect key="frame" x="150.5" y="84" width="113" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconRiceBowl" translatesAutoresizingMaskIntoConstraints="NO" id="w6c-pK-Z80">
+                    <rect key="frame" x="16" y="124" width="382" height="286.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="w6c-pK-Z80" secondAttribute="height" multiplier="4:3" id="8TP-oy-BIg"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal's Desc" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkR-Ws-d6l">
+                    <rect key="frame" x="16" y="426.5" width="382" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="w6c-pK-Z80" secondAttribute="trailing" constant="16" id="Cyx-Vc-Yj2"/>
+                <constraint firstItem="tkR-Ws-d6l" firstAttribute="trailing" secondItem="w6c-pK-Z80" secondAttribute="trailing" id="HFa-RV-DXk"/>
+                <constraint firstItem="w6c-pK-Z80" firstAttribute="top" secondItem="C29-zI-E9C" secondAttribute="bottom" constant="16" id="PF4-nH-3Ts"/>
+                <constraint firstItem="tkR-Ws-d6l" firstAttribute="leading" secondItem="w6c-pK-Z80" secondAttribute="leading" id="VVX-b9-Xsh"/>
+                <constraint firstItem="w6c-pK-Z80" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="fGo-DC-UKY"/>
+                <constraint firstItem="C29-zI-E9C" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="lbg-74-Adr"/>
+                <constraint firstItem="tkR-Ws-d6l" firstAttribute="top" secondItem="w6c-pK-Z80" secondAttribute="bottom" constant="16" id="tvp-vJ-33s"/>
+                <constraint firstItem="C29-zI-E9C" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="uzY-3L-U1n"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="126" y="129"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="iconRiceBowl" width="50" height="50"/>
+    </resources>
+</document>
