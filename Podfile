@@ -8,6 +8,7 @@ target 'SecondStageTest' do
   # Pods for SecondStageTest
   pod 'Alamofire', '~> 5.2'
   pod 'SDWebImage', '~> 5.0'
+  pod 'PKHUD', '~> 5.0'
 
   target 'SecondStageTestTests' do
     inherit! :search_paths

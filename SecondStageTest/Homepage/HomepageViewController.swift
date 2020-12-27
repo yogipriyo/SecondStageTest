@@ -7,24 +7,81 @@
 //
 
 import UIKit
+import Alamofire
+import PKHUD
 
-class HomepageViewController: UIViewController {
-
+final class HomepageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    // MARK: - Outlets
+    @IBOutlet weak var categoryTableView: UITableView!
+    
+    // MARK: - Properties
+    let cellReuseIdentifier = "CategoryTableViewCell"
+    var mealCategories: [MealCategory] = []
+    
+    // MARK: - Life Cycles
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setupNavbar()
+        self.getMealCategories()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.setupTable()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    // MARK: - Private Funcs
+    private func setupNavbar() {
+        self.navigationItem.title = "Homepage"
     }
-    */
+    
+    private func getMealCategories() {
+        HUD.show(.progress)
+        AF.request("https://www.themealdb.com/api/json/v1/1/categories.php")
+        .validate()
+        .responseDecodable(of: MealCategoryBase.self) { (response) in
+            guard let mealCategories = response.value else { return }
+            self.mealCategories = mealCategories.categories
+            self.categoryTableView.reloadData()
+            HUD.hide()
+        }
+    }
+    
+    private func setupTable() {
+        self.categoryTableView.dataSource = self
+        self.categoryTableView.delegate = self
+        self.categoryTableView.tableFooterView = UIView()
+        
+        let categoryCell = UINib(nibName: "CategoryTableViewCell", bundle: nil)
+        self.categoryTableView.register(categoryCell, forCellReuseIdentifier: cellReuseIdentifier)
+    }
+    
+    // MARK: - Table delegate & datasources
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.mealCategories.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as? CategoryTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        cell.selectionStyle = .none
+        cell.setupContent(self.mealCategories[indexPath.row])
+
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let mealListVC: MealListViewController = MealListViewController()
+        self.navigationController?.pushViewController(mealListVC, animated: true)
+    }
 
 }
